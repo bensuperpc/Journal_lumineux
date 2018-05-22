@@ -439,7 +439,8 @@ namespace AfficheurV1
 
                 this.Invoke(new MethodInvoker(delegate { LRC_Label.Text = command_History.Command_History_List[command_History.Command_History_List.Count - 1].LRC; }));
                 this.Invoke(new MethodInvoker(delegate { Serial_Input_TextBox.Text += "Retour :" + Return_Message + "\r\n"; }));
-                this.Invoke(new MethodInvoker(delegate { OK_Button.BackColor = Color.DarkOliveGreen; }));
+
+                this.Invoke(new MethodInvoker(delegate { OK_Button.BackColor = Color.DarkOliveGreen; }));//remove this ? 
 
 
 
