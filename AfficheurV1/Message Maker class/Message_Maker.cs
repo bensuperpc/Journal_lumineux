@@ -89,7 +89,7 @@ namespace AfficheurV1
                 string Message_Send_String_local;
                 Message_Send_String_local = Display_Number_Fonc(this.Display_Number) + "<L1>" + Page_Number_Fonc(this.Page_Number) + Enter_And_Left_effect(this.Enter_Effect_Index) + Speed_Display_Fonc(this.Speed_Display) + "<WC>" + Enter_And_Left_effect(this.Leave_Effect_Index) + Text_Color_Fonc(this.Text_Color) + this.Message;
                 Message_Send_String_local = Message_Send_String_local + calculateLRC(Message_Send_String_local) + "<E>";
-                MessageBox.Show(Enter_And_Left_effect(this.Enter_Effect_Index));// Probleme !
+                MessageBox.Show(Enter_And_Left_effect(this.Enter_Effect_Index));// Probleme !!
             this.Number_Of_Byte_Of_This_Command = Message_Send_String_local.Count();
                 return Message_Send_String_local;
 
