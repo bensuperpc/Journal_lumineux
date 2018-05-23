@@ -314,7 +314,7 @@ namespace AfficheurV1
             }
 
             command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, MainForm.Enter_Effect_Index, MainForm.Leave_Effect_Index, Speed_ComboBox.Text, Text_color_ComboBox.Text, Numero_de_Page_ComboBox.Text, Numero_Afficheur_ComboBox.Text));
-            MessageBox.Show(command_History.Command_History_List[command_History.Command_History_List.Count - 1].Enter_Effect_Index.ToString());
+           // MessageBox.Show(command_History.Command_History_List[command_History.Command_History_List.Count - 1].Enter_Effect_Index.ToString());
 
             try
             {
