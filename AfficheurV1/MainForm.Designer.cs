@@ -349,6 +349,7 @@
             this.Text_color_ComboBox.Size = new System.Drawing.Size(147, 21);
             this.Text_color_ComboBox.TabIndex = 22;
             this.Text_color_ComboBox.Text = "Rouge";
+            this.Text_color_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_color_ComboBox_SelectedIndexChanged_1);
             this.Text_color_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Text_color_ComboBox_SelectedIndexChanged);
             this.Text_color_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Text_color_ComboBox_KeyPress);
             // 
