@@ -33,14 +33,18 @@ namespace AfficheurV1
 
 
         public static string Message { set; get; }
-        public static string Enter_Effect { set; get; }
-        public static string Leave_Effect { set; get; }
+        //public static string Enter_Effect { set; get; }
+        //public static string Leave_Effect { set; get; }
 
         public static int Enter_Effect_Index = 0;
         public static int Leave_Effect_Index = 0;
+        public static int Speed_Display_Index = 0;
 
         public static string Speed_Display { set; get; }
         public static string Text_Color { set; get; }
+
+        public static int Text_Color_Index = 0;
+
         public static string Page_Number { set; get; }
         public static string Display_Number { set; get; }
         public static bool Serial_Comm_True_Ethernet_False { set; get; }
@@ -313,7 +317,7 @@ namespace AfficheurV1
                 Serial_Input_TextBox.Clear();
             }
 
-            command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, MainForm.Enter_Effect_Index, MainForm.Leave_Effect_Index, Speed_ComboBox.Text, Text_color_ComboBox.Text, Numero_de_Page_ComboBox.Text, Numero_Afficheur_ComboBox.Text));
+            command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, MainForm.Enter_Effect_Index, MainForm.Leave_Effect_Index, MainForm.Text_Color_Index, MainForm.Text_Color_Index, Numero_de_Page_ComboBox.Text, Numero_Afficheur_ComboBox.Text));
            // MessageBox.Show(command_History.Command_History_List[command_History.Command_History_List.Count - 1].Enter_Effect_Index.ToString());
 
             try
@@ -445,12 +449,15 @@ namespace AfficheurV1
 
         private void Speed_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainForm.Speed_Display = Speed_ComboBox.Text;
+            //MainForm.Speed_Display = Speed_ComboBox.Text; //to_remove
+            MainForm.Speed_Display_Index = Speed_ComboBox.SelectedIndex;
+
         }
 
         private void Text_color_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainForm.Text_Color = Text_color_ComboBox.Text;
+            //MainForm.Text_Color = Text_color_ComboBox.Text;
+            MainForm.Text_Color_Index = Text_color_ComboBox.SelectedIndex;
         }
 
         private void Numero_Afficheur_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -625,6 +632,11 @@ namespace AfficheurV1
         }
 
         private void Text_Effet_Sortie_ComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Text_color_ComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
