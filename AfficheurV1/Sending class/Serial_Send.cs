@@ -16,9 +16,10 @@ namespace AfficheurV1
     {
         public static string Serial_Envoi(string Message)
         {
-            try {
-                SerialPort PortAffichage = new SerialPort(MainForm.COM_Port);
-
+            try
+            {
+                SerialPort PortAffichage = new SerialPort();
+                PortAffichage.PortName = MainForm.COM_Port;
                 ///PortAffichage.Handshake = Handshake.XOnXOff;
                 //PortAffichage.Handshake = Handshake.XOnXOff;
                 //
@@ -95,15 +96,17 @@ namespace AfficheurV1
 
 
                 PortAffichage.Open();
+                PortAffichage.Write(Message);
+                //PortAffichage.Close();
 
-                //PortAffichage.Open();
+                PortAffichage.Open();
 
                 //PortAffichage.Write(new byte[] { 0xE0, 0xE1, 0xE2 }, 0, 3);
 
                 //string message = "<ID01><L1><PA><FA><Ma><WC><FA><CD>Geraldine0A<E>";
 
 
-                PortAffichage.Write(Message);
+
 
 
                 //while (PortAffichage.ReadChar() == 0) {
@@ -111,7 +114,7 @@ namespace AfficheurV1
 
 
 
-                PortAffichage.Close();
+                //PortAffichage.Close();
                 return "OK " + PortAffichage.ReadChar() + PortAffichage.ReadChar() + PortAffichage.ReadChar();
                 //PortAffichage.Close();
             }
@@ -123,12 +126,21 @@ namespace AfficheurV1
                 }
                 else
                 {
-                    return LanguageText_Data_Static.Error_Message_FR[0] + LanguageText_Data_Static.Error_Message_FR[2];
+                    if (MainForm.COM_Port == "")
+                    {
+                        return LanguageText_Data_Static.Error_Message_FR[0] + LanguageText_Data_Static.Error_Message_FR[2];
+                    }
+                    else
+                    {
+                        return LanguageText_Data_Static.Error_Message_FR[0] + LanguageText_Data_Static.Error_Message_FR[3];
+                    }
+
+
                 }
-                
+
             }
 
-            
+
 
         }
     }

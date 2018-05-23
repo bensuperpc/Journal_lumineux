@@ -25,16 +25,20 @@ namespace AfficheurV1
         //Variables synchronisées 
         public static string COM_Port { set; get; }
 
-        public static string Baud_Rate { set; get; }
-        public static string Stop_Bit { set; get; }
-        public static Byte Data_Bits { set; get; }
-        public static string Parity { set; get; }
-        public static string Flow_Control { set; get; }
+        public static string Baud_Rate = "9600";
+        public static string Stop_Bit = "1";
+        public static Byte Data_Bits = 8;
+        public static string Parity = "None";
+        public static string Flow_Control = "None";
 
 
         public static string Message { set; get; }
         public static string Enter_Effect { set; get; }
         public static string Leave_Effect { set; get; }
+
+        public static int Enter_Effect_Index = 0;
+        public static int Leave_Effect_Index = 0;
+
         public static string Speed_Display { set; get; }
         public static string Text_Color { set; get; }
         public static string Page_Number { set; get; }
@@ -57,13 +61,14 @@ namespace AfficheurV1
             InitializeComponent();
             //this.Avalable_COM_Port_MainForm = SerialPort.GetPortNames();
 
-
+            /*
             MainForm.Baud_Rate = "9600";
             MainForm.Stop_Bit = "1";
             MainForm.COM_Port = "";//probleme sur la form Serial settings !
             MainForm.Data_Bits = 8;
             MainForm.Parity = "None";
             MainForm.Flow_Control = "None";
+            */
             MainForm.Serial_Comm_True_Ethernet_False = true;
 
 
@@ -149,6 +154,7 @@ namespace AfficheurV1
                         Transition_Disappearance_message_label.Text = LanguageText_Data_Static.Label_FR[4];
                         Scroll_Speed_Label.Text = LanguageText_Data_Static.Label_FR[5];
                         Text_color_Label.Text = LanguageText_Data_Static.Label_FR[6];
+                        Message_label.Text = LanguageText_Data_Static.Label_FR[7];
 
                         Page_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_FR[0];
                         Verbose_Serial_GroupBox.Text = LanguageText_Data_Static.GroupeBox_FR[1];
@@ -207,6 +213,8 @@ namespace AfficheurV1
                         Transition_Disappearance_message_label.Text = LanguageText_Data_Static.Label_EN[4];
                         Scroll_Speed_Label.Text = LanguageText_Data_Static.Label_EN[5];
                         Text_color_Label.Text = LanguageText_Data_Static.Label_EN[6];
+                        Message_label.Text = LanguageText_Data_Static.Label_EN[7];
+
 
                         Page_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_EN[0];
                         Verbose_Serial_GroupBox.Text = LanguageText_Data_Static.GroupeBox_EN[1];
@@ -234,6 +242,60 @@ namespace AfficheurV1
 
                         break;
                     case "SP":
+                        for (int i = 0; i <= LanguageText_Data_Static.Speed_SP.Length - 1; i++)
+                        {
+                            Speed_ComboBox.Items.Add(LanguageText_Data_Static.Speed_SP[i]);
+                        }
+                        Speed_ComboBox.Text = LanguageText_Data_Static.Speed_SP[0];
+
+                        for (int i = 0; i <= LanguageText_Data_Static.Left_Effect_Static_SP.Length - 1; i++)
+                        {
+                            Text_Effet_Sortie_ComboBox.Items.Add(LanguageText_Data_Static.Left_Effect_Static_SP[i]);
+                            Text_Effet_Entre_ComboBox.Items.Add(LanguageText_Data_Static.Enter_Effect_Static_SP[i]);
+
+                        }
+                        Text_Effet_Sortie_ComboBox.Text = LanguageText_Data_Static.Left_Effect_Static_SP[0];
+                        Text_Effet_Entre_ComboBox.Text = LanguageText_Data_Static.Enter_Effect_Static_SP[0];
+
+                        for (int i = 0; i <= LanguageText_Data_Static.Text_color_SP.Length - 1; i++)
+                        {
+                            Text_color_ComboBox.Items.Add(LanguageText_Data_Static.Text_color_SP[i]);
+                        }
+                        Text_color_ComboBox.Text = LanguageText_Data_Static.Text_color_SP[0];
+
+                        Dispay_Number_Label.Text = LanguageText_Data_Static.Label_SP[0];
+                        Page_of_Message_Label.Text = LanguageText_Data_Static.Label_SP[1];
+                        Message_label.Text = LanguageText_Data_Static.Label_SP[2];
+                        Transition_appearance_message_Label.Text = LanguageText_Data_Static.Label_SP[3];
+                        Transition_Disappearance_message_label.Text = LanguageText_Data_Static.Label_SP[4];
+                        Scroll_Speed_Label.Text = LanguageText_Data_Static.Label_SP[5];
+                        Text_color_Label.Text = LanguageText_Data_Static.Label_SP[6];
+                        Message_label.Text = LanguageText_Data_Static.Label_SP[7];
+
+
+                        Page_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[0];
+                        Verbose_Serial_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[1];
+                        General_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[2];
+                        Message_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[3];
+                        Display_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[4];
+                        Settings_Display_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[5];
+
+                        if (MainForm.Serial_Comm_True_Ethernet_False == true)
+                        {
+                            RS232_Settings_Button.Text = LanguageText_Data_Static.Button_SP[0];
+                        }
+                        else
+                        {
+                            RS232_Settings_Button.Text = LanguageText_Data_Static.Button_SP[9];
+                        }
+                        Light_Plus_button.Text = LanguageText_Data_Static.Button_SP[1];
+                        Light_Moins_button.Text = LanguageText_Data_Static.Button_SP[2];
+                        Change_Language_Button.Text = LanguageText_Data_Static.Button_SP[3];
+                        Export_to_XML_Button.Text = LanguageText_Data_Static.Button_SP[4];
+                        Drawing_Button.Text = LanguageText_Data_Static.Button_SP[5];
+                        Val_Button.Text = LanguageText_Data_Static.Button_SP[6];
+                        Info_LRC_Button.Text = LanguageText_Data_Static.Button_SP[7];
+                        OK_Button.Text = LanguageText_Data_Static.Button_SP[8];
 
                         break;
                     default:
@@ -251,8 +313,8 @@ namespace AfficheurV1
                 Serial_Input_TextBox.Clear();
             }
 
-            command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, Text_Effet_Entre_ComboBox.Text, Text_Effet_Sortie_ComboBox.Text, Speed_ComboBox.Text, Text_color_ComboBox.Text, Numero_de_Page_ComboBox.Text, Numero_Afficheur_ComboBox.Text));
-
+            command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, MainForm.Enter_Effect_Index, MainForm.Leave_Effect_Index, Speed_ComboBox.Text, Text_color_ComboBox.Text, Numero_de_Page_ComboBox.Text, Numero_Afficheur_ComboBox.Text));
+            MessageBox.Show(command_History.Command_History_List[command_History.Command_History_List.Count - 1].Enter_Effect_Index.ToString());
 
             try
             {
@@ -301,15 +363,24 @@ namespace AfficheurV1
         {
             MainForm.Message = Text_Message_TextBox.Text;
 
-        }
+        } //bricosimple 5 minutes craft
 
         private void Text_Effet_Entre_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //LanguageText.Effet_Entre_Static_FR[0];
-            MainForm.Enter_Effect = this.Text_Effet_Entre_ComboBox.Text;
+            //MainForm.Enter_Effect = this.Text_Effet_Entre_ComboBox.Text;
+            Enter_Effect_Index = Text_Effet_Entre_ComboBox.SelectedIndex;
 
+        //MessageBox.Show(this.Text_Effet_Entre_ComboBox.SelectedIndex.ToString());
 
         }
+        private void Text_Effet_Sortie_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MainForm.Leave_Effect = this.Text_Effet_Sortie_ComboBox.Text;
+            Leave_Effect_Index = Text_Effet_Sortie_ComboBox.SelectedIndex;
+            //MessageBox.Show(this.Text_Effet_Sortie_ComboBox.SelectedIndex.ToString());
+        }
+
 
         private void Numero_Afficheur_ComboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -370,10 +441,7 @@ namespace AfficheurV1
             }
         }
 
-        private void Text_Effet_Sortie_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MainForm.Leave_Effect = this.Text_Effet_Sortie_ComboBox.Text;
-        }
+
 
         private void Speed_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -553,6 +621,11 @@ namespace AfficheurV1
             {
                 Serial_Input_TextBox.Text += "Error with Import XML!" + "\r\n";
             }
+
+        }
+
+        private void Text_Effet_Sortie_ComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
 
         }
     }

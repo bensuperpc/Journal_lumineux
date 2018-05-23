@@ -52,7 +52,6 @@
             // Spansih_RadioButton
             // 
             this.Spansih_RadioButton.AutoSize = true;
-            this.Spansih_RadioButton.Enabled = false;
             this.Spansih_RadioButton.Location = new System.Drawing.Point(6, 66);
             this.Spansih_RadioButton.Name = "Spansih_RadioButton";
             this.Spansih_RadioButton.Size = new System.Drawing.Size(63, 17);
