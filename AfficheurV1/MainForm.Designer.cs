@@ -53,6 +53,7 @@
             this.Text_color_Label = new System.Windows.Forms.Label();
             this.Text_color_ComboBox = new System.Windows.Forms.ComboBox();
             this.General_Settings_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Import_to_XML_Button = new System.Windows.Forms.Button();
             this.Drawing_Button = new System.Windows.Forms.Button();
             this.Page_Settings_GroupBox = new System.Windows.Forms.GroupBox();
             this.Message_GroupBox = new System.Windows.Forms.GroupBox();
@@ -69,7 +70,6 @@
             this.Serial_True_RadioButton = new System.Windows.Forms.RadioButton();
             this.Ethernet_True_RadioButton = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.Import_to_XML_Button = new System.Windows.Forms.Button();
             this.Display_Settings_GroupBox.SuspendLayout();
             this.General_Settings_GroupBox.SuspendLayout();
             this.Page_Settings_GroupBox.SuspendLayout();
@@ -96,7 +96,7 @@
             this.Text_Effet_Entre_ComboBox.Size = new System.Drawing.Size(150, 21);
             this.Text_Effet_Entre_ComboBox.TabIndex = 0;
             this.Text_Effet_Entre_ComboBox.Text = "Aucune transition";
-            this.Text_Effet_Entre_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_Effet_Entre_ComboBox_SelectedIndexChanged);
+            this.Text_Effet_Entre_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Text_Effet_Entre_ComboBox_SelectedIndexChanged);
             this.Text_Effet_Entre_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Text_Effet_Entre_ComboBox_KeyPress);
             // 
             // Light_Plus_button
@@ -136,7 +136,8 @@
             this.Text_Effet_Sortie_ComboBox.Size = new System.Drawing.Size(150, 21);
             this.Text_Effet_Sortie_ComboBox.TabIndex = 3;
             this.Text_Effet_Sortie_ComboBox.Text = "Aucune transition";
-            this.Text_Effet_Sortie_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_Effet_Sortie_ComboBox_SelectedIndexChanged);
+            this.Text_Effet_Sortie_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_Effet_Sortie_ComboBox_SelectedIndexChanged_1);
+            this.Text_Effet_Sortie_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Text_Effet_Sortie_ComboBox_SelectedIndexChanged);
             this.Text_Effet_Sortie_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Text_Effet_Sortie_ComboBox_KeyPress);
             // 
             // Text_Message_TextBox
@@ -263,7 +264,7 @@
             this.Speed_ComboBox.Size = new System.Drawing.Size(150, 21);
             this.Speed_ComboBox.TabIndex = 16;
             this.Speed_ComboBox.Text = "Vitesse 2";
-            this.Speed_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Speed_ComboBox_SelectedIndexChanged);
+            this.Speed_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Speed_ComboBox_SelectedIndexChanged);
             this.Speed_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Speed_ComboBox_KeyPress);
             // 
             // Transition_appearance_message_Label
@@ -348,7 +349,7 @@
             this.Text_color_ComboBox.Size = new System.Drawing.Size(147, 21);
             this.Text_color_ComboBox.TabIndex = 22;
             this.Text_color_ComboBox.Text = "Rouge";
-            this.Text_color_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Text_color_ComboBox_SelectedIndexChanged);
+            this.Text_color_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Text_color_ComboBox_SelectedIndexChanged);
             this.Text_color_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Text_color_ComboBox_KeyPress);
             // 
             // General_Settings_GroupBox
@@ -366,6 +367,16 @@
             this.General_Settings_GroupBox.TabIndex = 23;
             this.General_Settings_GroupBox.TabStop = false;
             this.General_Settings_GroupBox.Text = "Parametres Genéraux et Dessin";
+            // 
+            // Import_to_XML_Button
+            // 
+            this.Import_to_XML_Button.Location = new System.Drawing.Point(20, 128);
+            this.Import_to_XML_Button.Name = "Import_to_XML_Button";
+            this.Import_to_XML_Button.Size = new System.Drawing.Size(156, 23);
+            this.Import_to_XML_Button.TabIndex = 21;
+            this.Import_to_XML_Button.Text = "Import Historique com. XML ";
+            this.Import_to_XML_Button.UseVisualStyleBackColor = true;
+            this.Import_to_XML_Button.Click += new System.EventHandler(this.Import_to_XML_Button_Click);
             // 
             // Drawing_Button
             // 
@@ -402,7 +413,7 @@
             this.Message_GroupBox.Size = new System.Drawing.Size(238, 101);
             this.Message_GroupBox.TabIndex = 25;
             this.Message_GroupBox.TabStop = false;
-            this.Message_GroupBox.Text = "Le Message";
+            this.Message_GroupBox.Text = "Message";
             // 
             // LRC_Label
             // 
@@ -532,16 +543,6 @@
             this.Ethernet_True_RadioButton.Text = "Ethernet";
             this.Ethernet_True_RadioButton.UseVisualStyleBackColor = true;
             this.Ethernet_True_RadioButton.CheckedChanged += new System.EventHandler(this.Ethernet_True_RadioButton_CheckedChanged);
-            // 
-            // Import_to_XML_Button
-            // 
-            this.Import_to_XML_Button.Location = new System.Drawing.Point(20, 128);
-            this.Import_to_XML_Button.Name = "Import_to_XML_Button";
-            this.Import_to_XML_Button.Size = new System.Drawing.Size(156, 23);
-            this.Import_to_XML_Button.TabIndex = 21;
-            this.Import_to_XML_Button.Text = "Import Historique com. XML ";
-            this.Import_to_XML_Button.UseVisualStyleBackColor = true;
-            this.Import_to_XML_Button.Click += new System.EventHandler(this.Import_to_XML_Button_Click);
             // 
             // MainForm
             // 
