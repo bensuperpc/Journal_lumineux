@@ -48,7 +48,6 @@ namespace AfficheurV1
 
             this.Enter_Effect_Index = Enter_Effect_Index;
             this.Leave_Effect_Index = Leave_Effect_Index;
-            //MessageBox.Show(this.Enter_Effect_Index.ToString());
             this.Speed_Display_Index = Speed_Display_Index;
             this.Text_Color_Index = Text_Color_Index;
             this.Page_Number = Page_Number;
@@ -122,23 +121,20 @@ namespace AfficheurV1
         private string Text_Color_Fonc(int Text_Color)
         {
             string[] Text_Color_List = { "<CA>", "<CD>", "<CH>", "<CL>","<CM>","<CN>","<CP>","<CQ>","<CR>","<CS>" };
-
-
             return Text_Color_List[Text_Color];
         }
 
         private string Speed_Display_Fonc(int Speed_Display)
         {
             string[] Enter_Effect_List = {"<Mq>","<Ma>","<MQ>","<MA>"};
-
-
             return Enter_Effect_List[Speed_Display];
         }
 
         private string Display_Number_Fonc(string Display_Number)
         {
-            return "<"+ "ID"+Display_Number + ">";
+            return "<"+ "ID"+ Display_Number + ">";
         }
+
         private string Page_Number_Fonc(string Page_Number)
         {
             switch (Page_Number)
