@@ -16,10 +16,12 @@ namespace AfficheurV1
         public int Leave_Effect_Index { set; get; }
         public int Text_Color_Index { set; get; }
         public int Speed_Display_Index { set; get; }
+        public int Line_Number_Display_Index { set; get; }
+
 
         public string Speed_Display { set; get; }
-        public string Page_Number { set; get; }
-        public string Display_Number { set; get; }
+        public int Page_Number { set; get; }
+        public int Display_Number { set; get; }
         public string LRC { get; set; }
 
         public string COM_Port { set; get; }
@@ -39,7 +41,7 @@ namespace AfficheurV1
         public static int Number_Instance_Static { set; get; }
         //public bool Command_Calc_OK { set; get; }
 
-        public Message_Maker(string Message, int Enter_Effect_Index, int Leave_Effect_Index, int Speed_Display_Index, int Text_Color_Index, string Page_Number, string Display_Number)
+        public Message_Maker(string Message, int Enter_Effect_Index, int Leave_Effect_Index, int Speed_Display_Index, int Text_Color_Index, int Page_Number_Index, int Display_Number_Index,int Line_Number_Display_Index)
         {
             Number_Instance_Static = Number_Instance_Static + 1;
             this.Message = Message;
@@ -50,8 +52,9 @@ namespace AfficheurV1
             this.Leave_Effect_Index = Leave_Effect_Index;
             this.Speed_Display_Index = Speed_Display_Index;
             this.Text_Color_Index = Text_Color_Index;
-            this.Page_Number = Page_Number;
-            this.Display_Number = Display_Number;
+            this.Page_Number = Page_Number_Index;
+            this.Display_Number = Display_Number_Index;
+            this.Line_Number_Display_Index = Line_Number_Display_Index;
             this.LRC = "";
 
             //Pour Historique
@@ -84,35 +87,32 @@ namespace AfficheurV1
         {
 
                 string Message_Send_String_local;
-                Message_Send_String_local = Display_Number_Fonc(this.Display_Number) + "<L1>" + Page_Number_Fonc(this.Page_Number) + Enter_And_Left_effect(this.Enter_Effect_Index) + Speed_Display_Fonc(this.Leave_Effect_Index) + "<WC>" + Enter_And_Left_effect(this.Leave_Effect_Index) + Text_Color_Fonc(this.Text_Color_Index) + this.Message;
+                Message_Send_String_local = Display_Number_Fonc(this.Display_Number) + Line_Number_Display_Fonc(this.Line_Number_Display_Index)+ Page_Number_Fonc(this.Page_Number) + Enter_And_Left_effect(this.Enter_Effect_Index) + Speed_Display_Fonc(this.Leave_Effect_Index) + "<WC>" + Enter_And_Left_effect(this.Leave_Effect_Index) + Text_Color_Fonc(this.Text_Color_Index) + this.Message;
                 Message_Send_String_local = Message_Send_String_local + calculateLRC(Message_Send_String_local) + "<E>";
             this.Number_Of_Byte_Of_This_Command = Message_Send_String_local.Count();
                 return Message_Send_String_local;
 
         }
 
+        private string Line_Number_Display_Fonc(int Line_Number_Display)
+
+        {
+      
+            return "<"+"L"+Line_Number_Display.ToString() +">";
+        }
+
 
         private string calculateLRC(string messageLRC)
         {
-            
-
-
             int CS = 0;
-
-            //b = Encoding.ASCII.GetBytes(messageLRC.Substring(0,messageLRC.Length-3));
-
             string input = messageLRC.Substring(0, messageLRC.Length);
             input = input.Substring(6, input.Length - 6);
             char[] values = input.ToCharArray();
             foreach (char letter in values)
             {
-                // Get the integral value of the character.
                 int value = Convert.ToInt32(letter);
                 CS = value ^ CS;
-
             }
-
-            
             string hexValue = CS.ToString("X");
             this.LRC = hexValue;
             return hexValue;
@@ -130,43 +130,21 @@ namespace AfficheurV1
             return Enter_Effect_List[Speed_Display];
         }
 
-        private string Display_Number_Fonc(string Display_Number)
+        private string Display_Number_Fonc(int Display_Number)
         {
-            return "<"+ "ID"+ Display_Number + ">";
+            string[] Display_Number_List = { "<ID01>", "<ID02>", "<ID03>", "<ID04>", "<ID05>", "<ID06>" };
+            return Display_Number_List[Display_Number];
         }
 
-        private string Page_Number_Fonc(string Page_Number)
+        private string Page_Number_Fonc(int Page_Number)
         {
-            switch (Page_Number)
-            {
-                case "Page 1":
-                    Page_Number = "PA";
-                    break;
-                case "Page 2":
-                    Page_Number = "PB";
-                    break;
-                case "Page 3":
-                    Page_Number = "PC";
-                    break;
-                case "Page 4":
-                    Page_Number = "PD";
-                    break;
-                case "Page 5":
-                    Page_Number = "PE";
-                    break;
-                default:
-                    MessageBox.Show("Error");
-                    Page_Number = "null";
-                    break;
-            }
-            return "<" + Page_Number + ">";
+            string[] Text_Color_List = {"<PA>", "<PB>", "<PC>", "<PD>", "<PE>"};
+            return Text_Color_List[Page_Number];
         }
 
         private string Enter_And_Left_effect(int Effect)
         {
-            string[] Effect_List = { "<FA>", "<FC>", "<FD>", "<FE>", "<FF>", "<FI>", "<FJ>", "<FL>" };
-
-
+            string[] Effect_List = { "<FA>", "<FC>", "<FD>", "<FE>", "<FF>", "<FI>", "<FJ>", "<FL>"};
             return Effect_List[Effect];
         }
 

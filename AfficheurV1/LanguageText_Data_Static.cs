@@ -26,7 +26,7 @@ namespace AfficheurV1
             "Defilement vers la gauche","Defilement vers la droite","Defilement vers le haut","Defilement vers le bas","Effet neige"};
           public static readonly string[] Speed_FR = { "Vitesse 1 (Lent)", "Vitesse 2", "Vitesse 3", "Vitesse 4 (Rapide)" };
         public static readonly string[] Label_FR = { "Numéro d'afficheur", "Page de Message", "Message a Afficher",
-        "Transition apparition message","Transition Disparition message","Vitesse de defilement","Coleur du text","Texte à afficher"};
+        "Transition apparition message","Transition Disparition message","Vitesse de defilement","Coleur du text","Texte à afficher","N° de ligne"};
         public static readonly string[] GroupeBox_FR = { "Paramètre de Page", "Parametres Genéraux et Dessin",
         "Dialogue sur la ligne Serial","Message","Parametre de l'affichage","Jusqu'a la Page"};
 
@@ -50,7 +50,7 @@ namespace AfficheurV1
         public static readonly string[] Speed_EN = { "Speed 1 (Slow)", "Speed 2", "Speed 3", "Speed 4 (Fast)" };
 
         public static readonly string[] Label_EN = {"Display Number :","Page of message","Message to display",
-            "Transition appearance message", "Transition Disappearance message", "Scroll Speed", "Text color", "Text to display"};
+            "Transition appearance message", "Transition Disappearance message", "Scroll Speed", "Text color", "Text to display","Line number"};
         public static readonly string[] GroupeBox_EN = { "Settings of Page", "General Settings and Drawing",
             "Serial Output","Message","Display settings","To page"};
 
@@ -69,7 +69,7 @@ namespace AfficheurV1
 "Desplácese hacia la izquierda", "Desplácese hacia la derecha", "Desplácese hacia arriba", "Desplazarse hacia abajo", "Efecto Nieve"};
         public static readonly string[] Speed_SP = {"Velocidad 1 (lenta)", "Velocidad 2", "Velocidad 3", "Velocidad 4 (rápida)"};
         public static readonly string[] Label_SP = {"Caller ID", "Message Page", "Message to Display",
-        "Transición de la apariencia del mensaje", "Transición de desaparición del mensaje", "Velocidad de desplazamiento", "Color del texto","Texto para mostrar"};
+        "Transición de la apariencia del mensaje", "Transición de desaparición del mensaje", "Velocidad de desplazamiento", "Color del texto","Texto para mostrar","????????"};
         public static readonly string[] GroupeBox_SP = {"Parámetro de página", "Parámetros generales y dibujo",
 "Diálogo en línea serie", "Mensaje", "Configuración de pantalla", "Hasta página"};
 

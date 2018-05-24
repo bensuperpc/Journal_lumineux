@@ -70,6 +70,8 @@
             this.Serial_True_RadioButton = new System.Windows.Forms.RadioButton();
             this.Ethernet_True_RadioButton = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.Line_Number_Display_label = new System.Windows.Forms.Label();
+            this.Line_Number_Display_ComboBox = new System.Windows.Forms.ComboBox();
             this.Display_Settings_GroupBox.SuspendLayout();
             this.General_Settings_GroupBox.SuspendLayout();
             this.Page_Settings_GroupBox.SuspendLayout();
@@ -195,7 +197,7 @@
             // 
             // OK_Button
             // 
-            this.OK_Button.Location = new System.Drawing.Point(12, 358);
+            this.OK_Button.Location = new System.Drawing.Point(12, 398);
             this.OK_Button.Name = "OK_Button";
             this.OK_Button.Size = new System.Drawing.Size(238, 66);
             this.OK_Button.TabIndex = 9;
@@ -227,7 +229,7 @@
             // Dispay_Number_Label
             // 
             this.Dispay_Number_Label.AutoSize = true;
-            this.Dispay_Number_Label.Location = new System.Drawing.Point(6, 21);
+            this.Dispay_Number_Label.Location = new System.Drawing.Point(6, 23);
             this.Dispay_Number_Label.Name = "Dispay_Number_Label";
             this.Dispay_Number_Label.Size = new System.Drawing.Size(96, 13);
             this.Dispay_Number_Label.TabIndex = 13;
@@ -236,7 +238,7 @@
             // Page_of_Message_Label
             // 
             this.Page_of_Message_Label.AutoSize = true;
-            this.Page_of_Message_Label.Location = new System.Drawing.Point(6, 50);
+            this.Page_of_Message_Label.Location = new System.Drawing.Point(5, 50);
             this.Page_of_Message_Label.Name = "Page_of_Message_Label";
             this.Page_of_Message_Label.Size = new System.Drawing.Size(93, 13);
             this.Page_of_Message_Label.TabIndex = 14;
@@ -314,7 +316,7 @@
             this.Display_Settings_GroupBox.Controls.Add(this.Text_Effet_Sortie_ComboBox);
             this.Display_Settings_GroupBox.Controls.Add(this.Speed_ComboBox);
             this.Display_Settings_GroupBox.Controls.Add(this.Transition_appearance_message_Label);
-            this.Display_Settings_GroupBox.Location = new System.Drawing.Point(12, 220);
+            this.Display_Settings_GroupBox.Location = new System.Drawing.Point(12, 239);
             this.Display_Settings_GroupBox.Name = "Display_Settings_GroupBox";
             this.Display_Settings_GroupBox.Size = new System.Drawing.Size(336, 132);
             this.Display_Settings_GroupBox.TabIndex = 22;
@@ -364,7 +366,7 @@
             this.General_Settings_GroupBox.Controls.Add(this.Change_Language_Button);
             this.General_Settings_GroupBox.Location = new System.Drawing.Point(259, 13);
             this.General_Settings_GroupBox.Name = "General_Settings_GroupBox";
-            this.General_Settings_GroupBox.Size = new System.Drawing.Size(195, 201);
+            this.General_Settings_GroupBox.Size = new System.Drawing.Size(195, 220);
             this.General_Settings_GroupBox.TabIndex = 23;
             this.General_Settings_GroupBox.TabStop = false;
             this.General_Settings_GroupBox.Text = "Parametres Genéraux et Dessin";
@@ -392,13 +394,15 @@
             // 
             // Page_Settings_GroupBox
             // 
+            this.Page_Settings_GroupBox.Controls.Add(this.Line_Number_Display_ComboBox);
+            this.Page_Settings_GroupBox.Controls.Add(this.Line_Number_Display_label);
             this.Page_Settings_GroupBox.Controls.Add(this.Dispay_Number_Label);
             this.Page_Settings_GroupBox.Controls.Add(this.Numero_de_Page_ComboBox);
             this.Page_Settings_GroupBox.Controls.Add(this.Numero_Afficheur_ComboBox);
             this.Page_Settings_GroupBox.Controls.Add(this.Page_of_Message_Label);
             this.Page_Settings_GroupBox.Location = new System.Drawing.Point(12, 12);
             this.Page_Settings_GroupBox.Name = "Page_Settings_GroupBox";
-            this.Page_Settings_GroupBox.Size = new System.Drawing.Size(238, 97);
+            this.Page_Settings_GroupBox.Size = new System.Drawing.Size(238, 114);
             this.Page_Settings_GroupBox.TabIndex = 24;
             this.Page_Settings_GroupBox.TabStop = false;
             this.Page_Settings_GroupBox.Text = "Paramètre de Page";
@@ -409,7 +413,7 @@
             this.Message_GroupBox.Controls.Add(this.label7);
             this.Message_GroupBox.Controls.Add(this.Message_label);
             this.Message_GroupBox.Controls.Add(this.Text_Message_TextBox);
-            this.Message_GroupBox.Location = new System.Drawing.Point(12, 115);
+            this.Message_GroupBox.Location = new System.Drawing.Point(12, 132);
             this.Message_GroupBox.Name = "Message_GroupBox";
             this.Message_GroupBox.Size = new System.Drawing.Size(238, 101);
             this.Message_GroupBox.TabIndex = 25;
@@ -448,7 +452,7 @@
             // Info_LRC_Button
             // 
             this.Info_LRC_Button.Enabled = false;
-            this.Info_LRC_Button.Location = new System.Drawing.Point(354, 306);
+            this.Info_LRC_Button.Location = new System.Drawing.Point(354, 323);
             this.Info_LRC_Button.Name = "Info_LRC_Button";
             this.Info_LRC_Button.Size = new System.Drawing.Size(100, 46);
             this.Info_LRC_Button.TabIndex = 27;
@@ -460,7 +464,7 @@
             // 
             this.Settings_Display_GroupBox.Controls.Add(this.comboBox2);
             this.Settings_Display_GroupBox.Controls.Add(this.Val_Button);
-            this.Settings_Display_GroupBox.Location = new System.Drawing.Point(354, 221);
+            this.Settings_Display_GroupBox.Location = new System.Drawing.Point(354, 239);
             this.Settings_Display_GroupBox.Name = "Settings_Display_GroupBox";
             this.Settings_Display_GroupBox.Size = new System.Drawing.Size(100, 79);
             this.Settings_Display_GroupBox.TabIndex = 28;
@@ -504,7 +508,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 431);
+            this.label1.Location = new System.Drawing.Point(9, 483);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(201, 13);
             this.label1.TabIndex = 29;
@@ -514,7 +518,7 @@
             // 
             this.groupBox1.Controls.Add(this.Serial_True_RadioButton);
             this.groupBox1.Controls.Add(this.Ethernet_True_RadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(354, 368);
+            this.groupBox1.Location = new System.Drawing.Point(354, 375);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(100, 64);
             this.groupBox1.TabIndex = 30;
@@ -545,11 +549,40 @@
             this.Ethernet_True_RadioButton.UseVisualStyleBackColor = true;
             this.Ethernet_True_RadioButton.CheckedChanged += new System.EventHandler(this.Ethernet_True_RadioButton_CheckedChanged);
             // 
+            // Line_Number_Display_label
+            // 
+            this.Line_Number_Display_label.AutoSize = true;
+            this.Line_Number_Display_label.Location = new System.Drawing.Point(5, 78);
+            this.Line_Number_Display_label.Name = "Line_Number_Display_label";
+            this.Line_Number_Display_label.Size = new System.Drawing.Size(59, 13);
+            this.Line_Number_Display_label.TabIndex = 15;
+            this.Line_Number_Display_label.Text = "N° de ligne";
+            // 
+            // Line_Number_Display_ComboBox
+            // 
+            this.Line_Number_Display_ComboBox.FormattingEnabled = true;
+            this.Line_Number_Display_ComboBox.Items.AddRange(new object[] {
+            "Ligne 1",
+            "Ligne 2",
+            "Ligne 3",
+            "Ligne 4",
+            "Ligne 5",
+            "Ligne 6",
+            "Ligne 7",
+            "Ligne 8",
+            ""});
+            this.Line_Number_Display_ComboBox.Location = new System.Drawing.Point(106, 75);
+            this.Line_Number_Display_ComboBox.Name = "Line_Number_Display_ComboBox";
+            this.Line_Number_Display_ComboBox.Size = new System.Drawing.Size(64, 21);
+            this.Line_Number_Display_ComboBox.TabIndex = 16;
+            this.Line_Number_Display_ComboBox.Text = "Ligne 1";
+            this.Line_Number_Display_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.Line_Number_Display_ComboBox_SelectionChangeCommitted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 450);
+            this.ClientSize = new System.Drawing.Size(1027, 505);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Settings_Display_GroupBox);
@@ -623,6 +656,8 @@
         private System.Windows.Forms.Button Drawing_Button;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button Import_to_XML_Button;
+        private System.Windows.Forms.ComboBox Line_Number_Display_ComboBox;
+        private System.Windows.Forms.Label Line_Number_Display_label;
     }
 }
 
