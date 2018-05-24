@@ -30,23 +30,20 @@ namespace AfficheurV1
         public static Byte Data_Bits = 8;
         public static string Parity = "None";
         public static string Flow_Control = "None";
-
+        
 
         public static string Message { set; get; }
-        //public static string Enter_Effect { set; get; }
-        //public static string Leave_Effect { set; get; }
+
 
         public static int Enter_Effect_Index = 0;
         public static int Leave_Effect_Index = 0;
         public static int Speed_Display_Index = 0;
-
-        public static string Speed_Display { set; get; }
-        public static string Text_Color { set; get; }
-
+        public static int Page_Number_Index = 0;
         public static int Text_Color_Index = 0;
+        public static int Display_Number_Index = 0;
+        public static int Line_Number_Display_Index = 1;
 
-        public static string Page_Number { set; get; }
-        public static string Display_Number { set; get; }
+
         public static bool Serial_Comm_True_Ethernet_False { set; get; }
 
         public static string AddressIP { get; set; }
@@ -63,16 +60,6 @@ namespace AfficheurV1
         public MainForm()
         {
             InitializeComponent();
-            //this.Avalable_COM_Port_MainForm = SerialPort.GetPortNames();
-
-            /*
-            MainForm.Baud_Rate = "9600";
-            MainForm.Stop_Bit = "1";
-            MainForm.COM_Port = "";//probleme sur la form Serial settings !
-            MainForm.Data_Bits = 8;
-            MainForm.Parity = "None";
-            MainForm.Flow_Control = "None";
-            */
             MainForm.Serial_Comm_True_Ethernet_False = true;
 
 
@@ -160,6 +147,18 @@ namespace AfficheurV1
                         Text_color_Label.Text = LanguageText_Data_Static.Label_FR[6];
                         Message_label.Text = LanguageText_Data_Static.Label_FR[7];
 
+
+                        Line_Number_Display_ComboBox.Items.Clear();
+                        Line_Number_Display_label.Text = LanguageText_Data_Static.Label_FR[8];
+                        Line_Number_Display_ComboBox.Text = "Ligne 1";
+
+                        for (int i = 1; i <= 8; i++)
+                        {
+                            Line_Number_Display_ComboBox.Items.Add("Ligne "+ i.ToString());
+                        }
+
+
+
                         Page_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_FR[0];
                         Verbose_Serial_GroupBox.Text = LanguageText_Data_Static.GroupeBox_FR[1];
                         General_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_FR[2];
@@ -227,6 +226,18 @@ namespace AfficheurV1
                         Display_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_EN[4];
                         Settings_Display_GroupBox.Text = LanguageText_Data_Static.GroupeBox_EN[5];
 
+
+                        Line_Number_Display_label.Text = LanguageText_Data_Static.Label_EN[8];
+                        Line_Number_Display_ComboBox.Items.Clear();
+                        Line_Number_Display_ComboBox.Text = "Ligne 1";
+
+                        for (int i = 1; i <= 8; i++)
+                        {
+                            Line_Number_Display_ComboBox.Items.Add("Ligne " + i.ToString());
+                        }
+
+
+
                         if (MainForm.Serial_Comm_True_Ethernet_False == true)
                         {
                             RS232_Settings_Button.Text = LanguageText_Data_Static.Button_EN[0];
@@ -284,6 +295,10 @@ namespace AfficheurV1
                         Display_Settings_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[4];
                         Settings_Display_GroupBox.Text = LanguageText_Data_Static.GroupeBox_SP[5];
 
+
+
+
+
                         if (MainForm.Serial_Comm_True_Ethernet_False == true)
                         {
                             RS232_Settings_Button.Text = LanguageText_Data_Static.Button_SP[0];
@@ -317,7 +332,7 @@ namespace AfficheurV1
                 Serial_Input_TextBox.Clear();
             }
 
-            command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, MainForm.Enter_Effect_Index, MainForm.Leave_Effect_Index, MainForm.Text_Color_Index, MainForm.Text_Color_Index, Numero_de_Page_ComboBox.Text, Numero_Afficheur_ComboBox.Text));
+            command_History.Command_History_List.Add(new Message_Maker(Text_Message_TextBox.Text, MainForm.Enter_Effect_Index, MainForm.Leave_Effect_Index, MainForm.Text_Color_Index, MainForm.Text_Color_Index, MainForm.Page_Number_Index, MainForm.Display_Number_Index,MainForm.Line_Number_Display_Index));
            // MessageBox.Show(command_History.Command_History_List[command_History.Command_History_List.Count - 1].Enter_Effect_Index.ToString());
 
             try
@@ -371,8 +386,6 @@ namespace AfficheurV1
 
         private void Text_Effet_Entre_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //LanguageText.Effet_Entre_Static_FR[0];
-            //MainForm.Enter_Effect = this.Text_Effet_Entre_ComboBox.Text;
             Enter_Effect_Index = Text_Effet_Entre_ComboBox.SelectedIndex;
 
         //MessageBox.Show(this.Text_Effet_Entre_ComboBox.SelectedIndex.ToString());
@@ -380,9 +393,7 @@ namespace AfficheurV1
         }
         private void Text_Effet_Sortie_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MainForm.Leave_Effect = this.Text_Effet_Sortie_ComboBox.Text;
             Leave_Effect_Index = Text_Effet_Sortie_ComboBox.SelectedIndex;
-            //MessageBox.Show(this.Text_Effet_Sortie_ComboBox.SelectedIndex.ToString());
         }
 
 
@@ -449,25 +460,25 @@ namespace AfficheurV1
 
         private void Speed_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MainForm.Speed_Display = Speed_ComboBox.Text; //to_remove
+
             MainForm.Speed_Display_Index = Speed_ComboBox.SelectedIndex;
 
         }
 
         private void Text_color_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MainForm.Text_Color = Text_color_ComboBox.Text;
             MainForm.Text_Color_Index = Text_color_ComboBox.SelectedIndex;
         }
 
         private void Numero_Afficheur_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainForm.Display_Number = Numero_Afficheur_ComboBox.Text;
+            MainForm.Display_Number_Index = Numero_Afficheur_ComboBox.SelectedIndex;
         }
 
         private void Numero_de_Page_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainForm.Page_Number = Numero_de_Page_ComboBox.Text;
+            
+            MainForm.Page_Number_Index = Numero_de_Page_ComboBox.SelectedIndex;
         }
 
         private void Verbose_Serial_GroupBox_Enter(object sender, EventArgs e)
@@ -639,6 +650,11 @@ namespace AfficheurV1
         private void Text_color_ComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Line_Number_Display_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            MainForm.Line_Number_Display_Index = Line_Number_Display_ComboBox.SelectedIndex + 1;
         }
     }
 }
