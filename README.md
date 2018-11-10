@@ -1,2 +1,2 @@
 # Journal_lumineux
-Only for windows (VS2017), soon linux.
+Ce projet est abandoné.
