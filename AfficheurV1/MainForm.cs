@@ -65,6 +65,7 @@ namespace AfficheurV1
 
             LanguageText_Data_Static.CurrentLanguage_Static = "FR";
             LanguageForm languageForm = new LanguageForm("Language");
+            //Lancment du winfowsform pour la langue
             if (languageForm.ShowDialog() == DialogResult.OK)
             {
                 Language_Change(LanguageText_Data_Static.CurrentLanguage_Static);
@@ -73,7 +74,9 @@ namespace AfficheurV1
             {
                 System.Environment.Exit(0);
             }
+            
             Serial_Settings_Form serial_Settings = new Serial_Settings_Form();
+            //Lancment du winfowsform pour le serial
             if (serial_Settings.ShowDialog() == DialogResult.OK){ }
         }
 
